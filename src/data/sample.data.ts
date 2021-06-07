@@ -1,6 +1,8 @@
 import dayjs from "dayjs";
 import UserProfile from "../assets/images/imageList";
 
+const toDate = dayjs().second(0).millisecond(0);
+
 const DummyData = {
   user: {
     id: "jinny",
@@ -14,8 +16,8 @@ const DummyData = {
         nick_name: "부엉님",
         profile_url: UserProfile.owl,
       },
-      open_date: dayjs().subtract(80, "hour").valueOf(),
-      close_date: dayjs().subtract(65, "hour").valueOf(),
+      open_date: toDate.subtract(96, "hour").valueOf(),
+      close_date: toDate.subtract(72, "hour").valueOf(),
       vote_id: "ca23065fe7",
       vote_name: "신규 프로젝트의 회의 참석여부 선택해주세요.",
       vote_options: [
@@ -47,8 +49,8 @@ const DummyData = {
         nick_name: "부엉님",
         profile_url: UserProfile.owl,
       },
-      open_date: dayjs().subtract(35, "hour").valueOf(),
-      close_date: dayjs().add(1, "hour").valueOf(),
+      open_date: toDate.subtract(48, "hour").valueOf(),
+      close_date: toDate.add(24, "hour").valueOf(),
       vote_id: "a830191fde",
       vote_name: "먹고싶은 회식 메뉴는?",
       vote_options: [
@@ -75,8 +77,8 @@ const DummyData = {
         nick_name: "jinny",
         profile_url: UserProfile.jinny,
       },
-      open_date: dayjs().valueOf(),
-      close_date: dayjs().add(120, "hour").valueOf(),
+      open_date: toDate.valueOf(),
+      close_date: toDate.add(120, "hour").valueOf(),
       vote_id: "a830191fdi",
       vote_name: "내일 오전 회의 시간 투표합니다.",
       vote_options: [
@@ -103,8 +105,8 @@ const DummyData = {
         nick_name: "jinny",
         profile_url: UserProfile.jinny,
       },
-      open_date: dayjs().add(200, "hour").valueOf(),
-      close_date: dayjs().add(300, "hour").valueOf(),
+      open_date: toDate.add(240, "hour").valueOf(),
+      close_date: toDate.add(264, "hour").valueOf(),
       vote_id: "b830191fdi",
       vote_name: "프로그램에 대한 만족도 조사",
       vote_options: [
