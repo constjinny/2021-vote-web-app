@@ -4,7 +4,7 @@ import { createBrowserHistory } from "history";
 
 import { Header, Contents, Footer } from "../features/layout";
 import { VoteListPage } from "../features/voteList";
-import { VoteCreatePage } from "../features/voteCreate";
+import { VoteWritePage } from "../features/voteWrite";
 
 const history = createBrowserHistory();
 
@@ -19,8 +19,8 @@ export default function Routes(): ReactElement {
           </Route>
           <Route path="/list" exact component={VoteListPage} />
 
-          <Route path="/create" exact component={VoteCreatePage} />
-          <Route path="/modify/:vote_id" exact component={VoteCreatePage} />
+          <Route path="/create" exact component={VoteWritePage} />
+          <Route path="/modify/:vote_id" exact component={VoteWritePage} />
         </Switch>
       </Contents>
       <Footer />
