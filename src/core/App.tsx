@@ -3,20 +3,16 @@ import styled from "@emotion/styled";
 import { CommAPI } from "../api/sample.api";
 
 import Routes from "../routes/Routes";
-import { Header, Contents, Footer } from "../features/layout";
 
 function App(): ReactElement {
   useEffect(() => {
+    // NOTI: 임시 API사용으로 최초 진입 시 세션에 데이터 별도 세팅
     CommAPI.setInitData();
   }, []);
 
   return (
     <WrapStyle>
-      <Header />
-      <Contents>
-        <Routes />
-      </Contents>
-      <Footer />
+      <Routes />
     </WrapStyle>
   );
 }

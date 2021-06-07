@@ -2,23 +2,28 @@ import { ReactElement } from "react";
 import { Router, Switch, Redirect, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
-import { VoteList } from "../features/voteList";
-import { VoteDetail } from "../features/voteDetail";
-import { VoteResult } from "../features/voteResult";
+import { Header, Contents, Footer } from "../features/layout";
+import { VoteListPage } from "../features/voteList";
+import { VoteCreatePage } from "../features/voteCreate";
 
 const history = createBrowserHistory();
 
 export default function Routes(): ReactElement {
   return (
     <Router history={history}>
-      <Switch>
-        <Route path="/" exact>
-          <Redirect to="/list" />
-        </Route>
-        <Route path="/list" exact component={VoteList} />
-        <Route path="/list/:vote_id" exact component={VoteDetail} />
-        <Route path="/list/:vote_id/result" exact component={VoteResult} />
-      </Switch>
+      <Header />
+      <Contents>
+        <Switch>
+          <Route path="/" exact>
+            <Redirect to="/list" />
+          </Route>
+          <Route path="/list" exact component={VoteListPage} />
+
+          <Route path="/create" exact component={VoteCreatePage} />
+          <Route path="/modify/:vote_id" exact component={VoteCreatePage} />
+        </Switch>
+      </Contents>
+      <Footer />
     </Router>
   );
 }
