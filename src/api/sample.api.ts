@@ -30,10 +30,17 @@ const getVotes = () => {
 };
 
 const updateVotes = (newVote: IVotesAPIProps) => {
+  const { vote_id } = newVote;
   const getData = sessionStorage.getItem(DataType.VOTE_DATA);
   if (getData) {
     const parsed = JSON.parse(getData);
-    const updated = [...parsed, newVote];
+    const updated = parsed.map((vote: any) => {
+      if (vote.vote_id === vote_id) {
+        return newVote;
+      } else {
+        return vote;
+      }
+    });
 
     sessionStorage.setItem(DataType.VOTE_DATA, JSON.stringify(updated));
 
@@ -49,6 +56,20 @@ const getVoteItem = (id: string) => {
     const parsed = JSON.parse(getData);
     const filtered = parsed.find((vote: IVotesAPIProps) => vote.vote_id === id);
     return filtered;
+  }
+  return null;
+};
+
+const addVoteItem = (newVote: IVotesAPIProps) => {
+  const getData = sessionStorage.getItem(DataType.VOTE_DATA);
+  if (getData) {
+    const parsed = JSON.parse(getData);
+    const updated = [...parsed, newVote];
+
+    sessionStorage.setItem(DataType.VOTE_DATA, JSON.stringify(updated));
+
+    const getUpdateData = getVotes();
+    return getUpdateData;
   }
   return null;
 };
@@ -92,6 +113,12 @@ const updateVoteOptionCount = (data: {
 
 const CommAPI = { setInitData };
 const UserAPI = { getUser };
-const VoteAPI = { getVotes, updateVotes, getVoteItem, updateVoteOptionCount };
+const VoteAPI = {
+  getVotes,
+  updateVotes,
+  getVoteItem,
+  addVoteItem,
+  updateVoteOptionCount,
+};
 
 export { CommAPI, UserAPI, VoteAPI };

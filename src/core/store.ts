@@ -4,7 +4,7 @@ import { ThunkAction } from "redux-thunk";
 import { useDispatch } from "react-redux";
 
 import { voteListReducer } from "../features/voteList";
-import { voteWriteReducer } from "../features/voteCreate";
+import { voteWriteReducer } from "../features/voteWrite";
 
 export const rootReducer = combineReducers({
   voteListReducer,
