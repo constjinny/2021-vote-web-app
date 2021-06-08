@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/2021-vote-web-app/static/css/main.090ae146.chunk.css",
+    "main.js": "/2021-vote-web-app/static/js/main.24886f83.chunk.js",
+    "main.js.map": "/2021-vote-web-app/static/js/main.24886f83.chunk.js.map",
+    "runtime-main.js": "/2021-vote-web-app/static/js/runtime-main.d9695026.js",
+    "runtime-main.js.map": "/2021-vote-web-app/static/js/runtime-main.d9695026.js.map",
+    "static/js/2.238d601f.chunk.js": "/2021-vote-web-app/static/js/2.238d601f.chunk.js",
+    "static/js/2.238d601f.chunk.js.map": "/2021-vote-web-app/static/js/2.238d601f.chunk.js.map",
+    "index.html": "/2021-vote-web-app/index.html",
+    "static/css/main.090ae146.chunk.css.map": "/2021-vote-web-app/static/css/main.090ae146.chunk.css.map",
+    "static/js/2.238d601f.chunk.js.LICENSE.txt": "/2021-vote-web-app/static/js/2.238d601f.chunk.js.LICENSE.txt",
+    "static/media/jinny_profile.7349a196.png": "/2021-vote-web-app/static/media/jinny_profile.7349a196.png",
+    "static/media/owl_profile.75b5bbe4.png": "/2021-vote-web-app/static/media/owl_profile.75b5bbe4.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d9695026.js",
+    "static/js/2.238d601f.chunk.js",
+    "static/css/main.090ae146.chunk.css",
+    "static/js/main.24886f83.chunk.js"
+  ]
+}
