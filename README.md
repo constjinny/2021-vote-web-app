@@ -14,15 +14,15 @@
 
 투표 목록 (/)
 
-[https://react-app-by-constjinny.herokuapp.com/list]
+[https://constjinny.github.io/2021-vote-web-app/list]
 
-투표 신규 (/create)
+투표 생성 (/create)
 
-[https://react-app-by-constjinny.herokuapp.com/create]
+[https://constjinny.github.io/2021-vote-web-app/create]
 
 투표 수정 (/modify/:vote_id)
 
-[https://react-app-by-constjinny.herokuapp.com/modify/b830191fdi]
+[https://constjinny.github.io/2021-vote-web-app/modify/b830191fdi]
 
 ## 개발 환경
 
