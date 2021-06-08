@@ -4,8 +4,11 @@
 
 ### 개발 서버
 
+```
 `npm install` or `yarn`
-[http://localhost:3000] 접속
+```
+
+[http://localhost:3000/] 접속
 
 ### Heroku
 
@@ -60,6 +63,7 @@
 - 투표 참여
 - 투표 결과 확인
 - 투표 생성/수정/삭제
+- 임시 API 구성 (session storage 활용)
 
 ### 투표 목록
 
