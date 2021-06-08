@@ -10,7 +10,7 @@
 
 [http://localhost:3000/] 접속
 
-### Heroku
+### URL
 
 투표 목록 (/)
 
