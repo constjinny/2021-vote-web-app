@@ -46,6 +46,19 @@ export const VoteListSlice = createSlice({
         state.voteList = parsed;
       }
     },
+    deleteVote(state, action: PayloadAction<string>) {
+      const userData = UserAPI.getUser();
+      const updateVoteData = VoteAPI.deleteVoteItem(action.payload);
+
+      const parsed = VoteListParser({
+        userId: userData.id,
+        votesData: updateVoteData,
+      });
+
+      if (parsed) {
+        state.voteList = parsed;
+      }
+    },
   },
 });
 

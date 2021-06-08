@@ -1,17 +1,18 @@
 import { Fragment, ReactElement, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import styled from "@emotion/styled";
 
 import { VoteDetail } from "./VoteDetail";
 import { VoteResult } from "./VoteResult";
-import { voteListSelector } from "./VoteListSlice";
+import { voteListSelector, voteListAction } from "./VoteListSlice";
 import { IVoteItemProps } from "./type";
 import { Tag } from "../../components/tag";
 import { Profile } from "../../components/profile";
 import { Button } from "../../components/button";
 
 export function VoteList(): ReactElement {
+  const dispatch = useDispatch();
   const { push } = useHistory();
   const [openId, setOpenId] = useState("");
   const votes = useSelector(voteListSelector.selectVoteList);
@@ -36,6 +37,8 @@ export function VoteList(): ReactElement {
         const voteTag = isClose ? "투표 종료" : isOpen ? "투표 중" : "오픈 전";
 
         const handleModifyVote = () => push(`/modify/${voteId}`);
+        const handleDeleteVote = () =>
+          dispatch(voteListAction.deleteVote(voteId));
 
         return (
           <ItemWrapStyle key={voteId} onClick={() => handleOpenId(voteId)}>
@@ -52,7 +55,10 @@ export function VoteList(): ReactElement {
                 </div>
 
                 {isEdit && (
-                  <Button onClick={handleModifyVote}>투표 수정</Button>
+                  <ButtonGroupStyle>
+                    <Button onClick={handleModifyVote}>투표 수정</Button>
+                    <Button onClick={handleDeleteVote}>투표 삭제</Button>
+                  </ButtonGroupStyle>
                 )}
               </ItemInfoStyle>
             </ItemInfoGroupStyle>
@@ -100,9 +106,13 @@ const ItemInfoGroupStyle = styled.div`
 
 const ItemInfoStyle = styled.div`
   flex: 1;
-  overflow: hidden;
   position: relative;
   padding-right: 110px;
+  &:after {
+    display: block;
+    clear: both;
+    content: "";
+  }
   > div {
     overflow: hidden;
     position: relative;
@@ -121,9 +131,16 @@ const ItemInfoStyle = styled.div`
       }
     }
   }
+`;
+
+const ButtonGroupStyle = styled.span`
+  position: absolute;
+  top: 0;
+  right: 0;
   > button {
-    position: absolute;
-    top: 0;
-    right: 0;
+    display: block;
+  }
+  > button + button {
+    margin-top: 5px;
   }
 `;

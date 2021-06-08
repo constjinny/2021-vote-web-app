@@ -74,6 +74,22 @@ const addVoteItem = (newVote: IVotesAPIProps) => {
   return null;
 };
 
+const deleteVoteItem = (voteId: string) => {
+  const getData = sessionStorage.getItem(DataType.VOTE_DATA);
+  if (getData) {
+    const parsed = JSON.parse(getData);
+    const filtered = parsed.filter(
+      (vote: IVotesAPIProps) => vote.vote_id !== voteId
+    );
+
+    sessionStorage.setItem(DataType.VOTE_DATA, JSON.stringify(filtered));
+
+    const getUpdateData = getVotes();
+    return getUpdateData;
+  }
+  return null;
+};
+
 const updateVoteOptionCount = (data: {
   userId: string;
   voteId: string;
@@ -118,6 +134,7 @@ const VoteAPI = {
   updateVotes,
   getVoteItem,
   addVoteItem,
+  deleteVoteItem,
   updateVoteOptionCount,
 };
 
