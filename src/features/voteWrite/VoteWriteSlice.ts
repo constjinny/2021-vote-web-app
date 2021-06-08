@@ -16,6 +16,7 @@ export const initialVoteWrite: IVoteWriteProps = {
     voteOptions: ["", "", ""],
   },
   isError: false,
+  isSaved: false,
 };
 
 export const VoteWriteSlice = createSlice({
@@ -52,8 +53,6 @@ export const VoteWriteSlice = createSlice({
           ?.length <= 0;
 
       if (hasValues && hasOptions) {
-        state.isError = false;
-
         const userData = UserAPI.getUser();
         const parsed = VoteWriteToAPIParser(userData, state.voteData);
 
@@ -63,7 +62,7 @@ export const VoteWriteSlice = createSlice({
           VoteAPI.addVoteItem(parsed);
         }
 
-        state = initialVoteWrite;
+        state.isSaved = true;
       } else {
         state.isError = true;
       }
@@ -121,7 +120,10 @@ const selectVoteData = (state: IRootState) => state.voteWriteReducer.voteData;
 
 const selectError = (state: IRootState) => state.voteWriteReducer.isError;
 
+const selectSaved = (state: IRootState) => state.voteWriteReducer.isSaved;
+
 export const voteWriteSelector = {
   selectVoteData,
   selectError,
+  selectSaved,
 };

@@ -15,13 +15,18 @@ export function VoteWritePage(): ReactElement {
   const { vote_id: modifyId } = useParams<{ vote_id: string }>();
   const isModify = !isUndefined(modifyId);
   const isError = useSelector(voteWriteSelector.selectError);
+  const isSaved = useSelector(voteWriteSelector.selectSaved);
 
   const handleSaveVote = () => {
     dispatch(voteWriteAction.saveVoteData({ isModify }));
-    if (!isError) {
-      push("/list");
-    }
   };
+
+  useEffect(() => {
+    if (isSaved) {
+      push("/list");
+    } else if (isError) {
+    }
+  }, [push, isError, isSaved]);
 
   useEffect(() => {
     if (isModify) {
@@ -29,6 +34,7 @@ export function VoteWritePage(): ReactElement {
       dispatch(voteWriteAction.getVoteData({ voteId: modifyId }));
     }
     return () => {
+      // NOTI: 신규면 초기화 데이터를 불러들임
       dispatch(voteWriteAction.setVoteData());
     };
   }, [dispatch, isModify, modifyId]);

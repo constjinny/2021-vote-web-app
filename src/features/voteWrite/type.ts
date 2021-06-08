@@ -1,6 +1,7 @@
 export interface IVoteWriteProps {
   voteData: IVoteWriteDetailProps;
-  isError?: boolean;
+  isError: boolean;
+  isSaved: boolean;
 }
 
 export interface IVoteWriteDetailProps {
