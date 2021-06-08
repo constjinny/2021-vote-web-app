@@ -57,13 +57,16 @@ export const VoteWriteSlice = createSlice({
         const userData = UserAPI.getUser();
         const parsed = VoteWriteToAPIParser(userData, state.voteData);
 
-        if (isModify) {
-          VoteAPI.updateVotes(parsed);
+        if (parsed) {
+          if (isModify) {
+            VoteAPI.updateVotes(parsed);
+          } else {
+            VoteAPI.addVoteItem(parsed);
+          }
+          state.isSaved = true;
         } else {
-          VoteAPI.addVoteItem(parsed);
+          state.isError = true;
         }
-
-        state.isSaved = true;
       } else {
         state.isError = true;
       }

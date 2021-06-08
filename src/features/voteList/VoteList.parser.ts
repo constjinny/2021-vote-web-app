@@ -10,7 +10,7 @@ import { SortUtil } from "../../utils";
 const VoteListParser = ({ userId, votesData }: IVoteListAPIProps) => {
   const toData = dayjs().valueOf();
 
-  if (votesData.length > 0) {
+  if (votesData && votesData.length > 0) {
     const sortVotesData = SortUtil.sortedOderValue(
       votesData,
       "close_date",

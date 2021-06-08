@@ -24,6 +24,7 @@ const VoteWriteParser = (voteData: IVotesAPIProps) => {
       voteOptions: filterVoteOptions,
     };
   }
+  return null;
 };
 
 const VoteWriteToAPIParser = (
@@ -50,6 +51,7 @@ const VoteWriteToAPIParser = (
       vote_options: changeOptons,
     };
   }
+  return null;
 };
 
 export { VoteWriteParser, VoteWriteToAPIParser };
