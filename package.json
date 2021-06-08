@@ -1,5 +1,6 @@
 {
   "name": "2021-vote-web-app",
+  "homepage": "https://constjinny.github.io/2021-vote-web-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

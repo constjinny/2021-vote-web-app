@@ -6,7 +6,7 @@ import { Header, Contents, Footer } from "../features/layout";
 import { VoteListPage } from "../features/voteList";
 import { VoteWritePage } from "../features/voteWrite";
 
-const history = createBrowserHistory();
+const history = createBrowserHistory({ basename: "2021-vote-web-app" });
 
 export default function Routes(): ReactElement {
   return (
