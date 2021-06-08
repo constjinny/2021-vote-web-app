@@ -41,6 +41,7 @@ export const VoteWriteSlice = createSlice({
     setVoteData(state) {
       state.voteData = initialVoteWrite.voteData;
       state.isError = initialVoteWrite.isError;
+      state.isSaved = initialVoteWrite.isSaved;
     },
     saveVoteData(state, action: PayloadAction<{ isModify: boolean }>) {
       const { isModify } = action.payload;

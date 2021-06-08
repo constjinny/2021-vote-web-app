@@ -1,4 +1,10 @@
-import { Fragment, ReactElement, useEffect } from "react";
+import {
+  Fragment,
+  ReactElement,
+  useCallback,
+  useContext,
+  useEffect,
+} from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -28,16 +34,30 @@ export function VoteWritePage(): ReactElement {
     }
   }, [push, isError, isSaved]);
 
+  const setModifyData = useCallback(
+    (modifyId: string) => {
+      dispatch(voteWriteAction.getVoteData({ voteId: modifyId }));
+    },
+    [dispatch]
+  );
+
+  const setInitData = useCallback(() => {
+    dispatch(voteWriteAction.setVoteData());
+  }, [dispatch]);
+
   useEffect(() => {
     if (isModify) {
       // NOTI: 수정이면 기존 데이터를 불러들임
-      dispatch(voteWriteAction.getVoteData({ voteId: modifyId }));
-    }
-    return () => {
+      setModifyData(modifyId);
+    } else {
       // NOTI: 신규면 초기화 데이터를 불러들임
-      dispatch(voteWriteAction.setVoteData());
+      setInitData();
+    }
+    // NOTI: 컴포넌트 종료시 데이터 초기화
+    return () => {
+      setInitData();
     };
-  }, [dispatch, isModify, modifyId]);
+  }, [dispatch, isModify, modifyId, setModifyData, setInitData]);
 
   return (
     <Fragment>
