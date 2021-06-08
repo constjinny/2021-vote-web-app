@@ -19,10 +19,10 @@ export const VoteListSlice = createSlice({
       const userData = UserAPI.getUser();
       const votesData = VoteAPI.getVotes();
 
-      const parsed = VoteListParser({ userId: userData.id, votesData });
+      const parsed = VoteListParser({ userId: userData?.id, votesData });
 
       if (parsed) {
-        state.userId = userData.id;
+        state.userId = userData?.id;
         state.voteList = parsed;
       }
     },
@@ -38,7 +38,7 @@ export const VoteListSlice = createSlice({
       const updateVoteData = VoteAPI.updateVoteOptionCount(action.payload);
 
       const parsed = VoteListParser({
-        userId: userData.id,
+        userId: userData?.id,
         votesData: updateVoteData,
       });
 
@@ -51,7 +51,7 @@ export const VoteListSlice = createSlice({
       const updateVoteData = VoteAPI.deleteVoteItem(action.payload);
 
       const parsed = VoteListParser({
-        userId: userData.id,
+        userId: userData?.id,
         votesData: updateVoteData,
       });
 
