@@ -8,21 +8,15 @@
 `npm install` or `yarn`
 ```
 
-[http://localhost:3000/] 접속
+http://localhost:3000/ 접속
 
 ### URL
 
-투표 목록 (/)
+https://constjinny.github.io/2021-vote-web-app 접속
 
-[https://constjinny.github.io/2021-vote-web-app/list]
-
-투표 생성 (/create)
-
-[https://constjinny.github.io/2021-vote-web-app/create]
-
-투표 수정 (/modify/:vote_id)
-
-[https://constjinny.github.io/2021-vote-web-app/modify/b830191fdi]
+- 투표 목록 (/list)
+- 투표 생성 (/create)
+- 투표 수정 (/modify/:vote_id)
 
 ## 개발 환경
 
