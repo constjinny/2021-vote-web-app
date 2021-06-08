@@ -1,10 +1,15 @@
 import { configureStore, Action } from "@reduxjs/toolkit";
+import { combineReducers } from "@reduxjs/toolkit";
 import { ThunkAction } from "redux-thunk";
 import { useDispatch } from "react-redux";
 
-import { combineReducers } from "@reduxjs/toolkit";
+import { voteListReducer } from "../features/voteList";
+import { voteWriteReducer } from "../features/voteWrite";
 
-export const rootReducer = combineReducers({});
+export const rootReducer = combineReducers({
+  voteListReducer,
+  voteWriteReducer,
+});
 
 export type IRootState = ReturnType<typeof rootReducer>;
 
