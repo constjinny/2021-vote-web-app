@@ -4,8 +4,11 @@
 
 ### 개발 서버
 
+```
 `npm install` or `yarn`
-[http://localhost:3000] 접속
+```
+
+[http://localhost:3000/] 접속
 
 ### Heroku
 
